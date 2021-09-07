@@ -11,26 +11,25 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import NavBar from "components/comm/navbar/NavBar";
-import shopCartList from "./childCom/shopCartList";
-import shopCartBottom from "./childCom/shopCartBottom";
-import Scroll from "components/comm/scroll/Scroll";
+import NavBar from 'components/comm/navbar/NavBar'
+import shopCartList from './childCom/shopCartList'
+import shopCartBottom from './childCom/shopCartBottom'
+import Scroll from 'components/comm/scroll/Scroll'
 export default {
   components: {
     NavBar,
     shopCartList,
     shopCartBottom,
-    Scroll,
+    Scroll
   },
   data() {
-    return {};
+    return {}
   },
   activated() {
-    this.$refs.scrollCom.scroll.refresh();
+    this.$refs.scrollCom.scroll.refresh()
   },
-  computed: {},
-};
+  computed: {}
+}
 </script>
 
 <style scoped>

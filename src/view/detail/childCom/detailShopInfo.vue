@@ -1,28 +1,30 @@
 <template>
-  <div v-if="Object.keys(shopInfo).length!==0" class="shopInfo">
+  <div v-if="Object.keys(shopInfo).length !== 0" class="shopInfo">
     <div class="shopTitle">
       <span class="shopLogo">
         <img :src="shopInfo.logo" alt />
       </span>
-      <span class="shopName">{{shopInfo.name}}</span>
+      <span class="shopName">{{ shopInfo.name }}</span>
     </div>
 
     <div class="shopMes">
       <div class="left">
-        <div class="count">{{shopInfo.sell|showsell}}</div>
+        <div class="count">{{ shopInfo.sell | showsell }}</div>
         <div class="text">总销量</div>
       </div>
 
       <div class="center">
-        <div class="count">{{shopInfo.goodsCount}}</div>
+        <div class="count">{{ shopInfo.goodsCount }}</div>
         <div class="text">全部宝贝</div>
       </div>
 
       <div class="right">
         <div class="Info" v-for="item in shopInfo.score" :key="item.name">
-          <span>{{item.name}}</span>
-          <span :class="getClass1(item.isBetter)">{{item.score}}</span>
-          <span :class="getClass2(item.isBetter)">{{item.isBetter?'高':'低'}}</span>
+          <span>{{ item.name }}</span>
+          <span :class="getClass1(item.isBetter)">{{ item.score }}</span>
+          <span :class="getClass2(item.isBetter)">{{
+            item.isBetter ? '高' : '低'
+          }}</span>
         </div>
       </div>
     </div>
@@ -34,27 +36,29 @@
 
 <script>
 export default {
-  name: "DetailShopInfo",
+  name: 'DetailShopInfo',
   props: {
     shopInfo: {
       type: Object,
-      default: {},
-    },
+      default: () => {
+        return {}
+      }
+    }
   },
   filters: {
     showsell(count) {
-      return (count / 10000).toFixed(1) + "万";
-    },
+      return (count / 10000).toFixed(1) + '万'
+    }
   },
   methods: {
     getClass1(is) {
-      return is ? "active1" : "active2";
+      return is ? 'active1' : 'active2'
     },
     getClass2(is) {
-      return is ? "Active1" : "Active2";
-    },
-  },
-};
+      return is ? 'Active1' : 'Active2'
+    }
+  }
+}
 </script>
 
 <style scoped>

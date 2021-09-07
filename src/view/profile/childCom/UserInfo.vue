@@ -2,8 +2,8 @@
   <div class="user-info">
     <div class="user">
       <img src="@/assets/img/profile/user.svg" class="picture" alt />
-      <div class="login">
-        <div>登录/注册</div>
+      <div class="login" @click="loginAction">
+        <div>{{ getName ? '欢迎您，' + getName : '登录/注册' }}</div>
         <div class="bold">
           <img src="@/assets/img/profile/phone.svg" />
           <span>暂无绑定手机号</span>
@@ -61,22 +61,26 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  name: "UserInfo",
+  name: 'UserInfo',
   methods: {
     goCart() {
-      this.$router.push("/shopcart");
+      this.$router.push('/shopcart')
     },
+    loginAction() {
+      this.$router.push('/login')
+    }
   },
-};
+  computed: {
+    ...mapGetters(['getName'])
+  }
+}
 </script>
 
 <style scoped>
 * {
   font-size: 16px;
-}
-.user-info {
-  margin-top: 40px;
 }
 .user {
   background-color: deeppink;

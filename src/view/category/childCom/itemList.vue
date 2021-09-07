@@ -1,10 +1,10 @@
 <template>
   <div class="item-list">
     <Item
-      v-for="(item,index) in InfoList"
+      v-for="(item, index) in InfoList"
       :key="index"
       :message="item"
-      :class="{active:index==currentIndex}"
+      :class="{ active: index == currentIndex }"
       class="Item"
       @click.native="changeIndex(index)"
     ></Item>
@@ -12,35 +12,33 @@
 </template>
 
 <script>
-import Item from "./item";
-import GoodsList from "components/content/goods/GoodsList";
+import Item from './item'
 
 export default {
-  name: "ItemList",
+  name: 'ItemList',
   props: {
     InfoList: {
       type: Array,
       default() {
-        return [];
-      },
-    },
+        return []
+      }
+    }
   },
   components: {
-    Item,
-    GoodsList,
+    Item
   },
   data() {
     return {
-      currentIndex: 0,
-    };
+      currentIndex: 0
+    }
   },
   methods: {
     changeIndex(index) {
-      this.currentIndex = index;
-      this.$emit("changeIndex", this.InfoList[index].maitKey);
-    },
-  },
-};
+      this.currentIndex = index
+      this.$emit('changeIndex', this.InfoList[index].maitKey)
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -58,7 +56,7 @@ export default {
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-color: deeppink;
+  background-color: var(--color-tint);
 }
 
 .Item {

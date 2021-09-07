@@ -1,47 +1,51 @@
 <template>
   <div class="cart-bottom">
     <div class="all" @click="selectAll">
-      <img src="../../../assets/img/cart/tick.svg" alt :class="{activ:$store.getters.IsSelectAll}" />
+      <img
+        src="../../../assets/img/cart/tick.svg"
+        alt
+        :class="{ activ: $store.getters.IsSelectAll }"
+      />
       <span>全选</span>
     </div>
-    <div class="price">合计:{{allPrice|Price}}</div>
-    <div class="pay" @click="Pay">去结算({{checkedCount}})</div>
+    <div class="price">合计:{{ allPrice | Price }}</div>
+    <div class="pay" @click="Pay">去结算({{ checkedCount }})</div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex'
 
 export default {
-  name: "CartBottom",
+  name: 'CartBottom',
 
   methods: {
     selectAll() {
       if (this.$store.state.cartList.length == 0) {
-        this.$toast.show("没有商品可选!", 1000);
-        return;
+        this.$toast.show('没有商品可选!', 1000)
+        return
       }
-      this.$store.commit("changeIsSelectAll");
+      this.$store.commit('changeIsSelectAll')
     },
     async Pay() {
       try {
-        var res = await this.$store.dispatch("checkLeast");
+        var res = await this.$store.dispatch('checkLeast')
       } catch (err) {
-        this.$toast.show(err, 1000);
-        return;
+        this.$toast.show(err, 1000)
+        return
       }
-      this.$toast.show(res, 1000);
-    },
+      this.$toast.show(res, 1000)
+    }
   },
   computed: {
-    ...mapGetters(["IsSelectAll", "checkedCount", "allPrice"]),
+    ...mapGetters(['IsSelectAll', 'checkedCount', 'allPrice'])
   },
   filters: {
     Price(price) {
-      return "￥" + price + "元";
-    },
-  },
-};
+      return '￥' + price + '元'
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -56,8 +60,8 @@ export default {
   bottom: 49px;
   background-color: rgba(231, 231, 231, 0.9);
   display: flex;
-  height: 30px;
-  line-height: 30px;
+  height: 40px;
+  line-height: 40px;
   padding: 0 5px;
 }
 
@@ -87,6 +91,7 @@ export default {
   position: absolute;
   right: 0;
   top: 0;
+  height: 100%;
   width: 100px;
   font-size: 13px;
 }

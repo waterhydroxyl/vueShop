@@ -1,18 +1,23 @@
 <template>
   <div>
     <keep-alive exclude="Detail">
-    <!-- <keep-alive> -->
+      <!-- <keep-alive> -->
       <router-view></router-view>
     </keep-alive>
 
     <tab-bar v-if="isShow">
       <tab-bar-item path="/home">
-        <div slot="item-icon">
-          <img src="./assets/img/tabbar/home.svg" alt />
-        </div>
-        <div slot="item-icon-active">
-          <img src="./assets/img/tabbar/home_active.svg" alt />
-        </div>
+        <template v-slot:item-icon>
+          <div>
+            <img src="./assets/img/tabbar/home.svg" alt />
+          </div>
+        </template>
+
+        <template v-slot:item-icon-active>
+          <div>
+            <img src="./assets/img/tabbar/home_active.svg" alt />
+          </div>
+        </template>
         <div slot="item-text">
           <div>首页</div>
         </div>
@@ -55,37 +60,37 @@
 </template>
 
 <script>
-import TabBar from "components/comm/tabbar/TabBar";
-import TabBarItem from "components/comm/tabbar/TabBarItem";
+import TabBar from 'components/comm/tabbar/TabBar'
+import TabBarItem from 'components/comm/tabbar/TabBarItem'
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     TabBar,
-    TabBarItem,
+    TabBarItem
   },
   created() {},
   watch: {
     $route: {
-      handler(val, oldval) {
-        if (this.$route.name == "detail") {
-          this.isShow = false;
+      handler() {
+        if (this.$route.name == 'detail') {
+          this.isShow = false
         } else {
-          this.isShow = true;
+          this.isShow = true
         }
-      },
-    },
+      }
+    }
   },
   computed: {},
   data() {
     return {
-      isShow: true,
-    };
-  },
-};
+      isShow: true
+    }
+  }
+}
 </script>
 
 <style scoped>
-@import "./assets/css/normalize.css";
-@import "./assets/css/base.css";  
+@import './assets/css/normalize.css';
+@import './assets/css/base.css';
 </style>

@@ -6,8 +6,8 @@
     <div v-else>
       <slot name="item-icon-active"></slot>
     </div>
-    <div :class="{active:isActive}" :style="activeStyle" class="text">
-      <slot name="item-text">{{isActive}}</slot>
+    <div :class="{ active: isActive }" :style="activeStyle" class="text">
+      <slot name="item-text">{{ isActive }}</slot>
     </div>
   </div>
 </template>
@@ -18,28 +18,28 @@ export default {
     path: String,
     activeColor: {
       type: String,
-      default: "deeppink",
-    },
+      default: 'deeppink'
+    }
   },
   data() {
-    return {};
+    return {}
   },
   computed: {
     isActive() {
-      return this.$route.path.indexOf(this.path) != -1;
+      return this.$route.path.indexOf(this.path) != -1
     },
     activeStyle() {
-      return this.isActive ? { color: this.activeColor } : {};
-    },
+      return this.isActive ? { color: this.activeColor } : {}
+    }
   },
   methods: {
     itemClick() {
       if (this.path != this.$route.path) {
-        this.$router.push({ path: this.path });
+        this.$router.push({ path: this.path })
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style lang="less" scoped>
@@ -60,7 +60,7 @@ export default {
     vertical-align: middle;
   }
 }
-.text{
+.text {
   height: 22px;
   line-height: 22px;
   font-size: 12px;

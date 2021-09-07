@@ -1,9 +1,9 @@
 <template>
-  <div v-if="imgs.length>0">
+  <div v-if="imgs.length > 0">
     <!-- <div > -->
     <Swiper ref="mySwiper" :options="swiperOptions">
       <!-- <swiper-slide v-for="(item,index) in imgs" :key="index"> -->
-      <swiper-slide v-for="(item,index) in imgs" :key="index">
+      <swiper-slide v-for="(item, index) in imgs" :key="index">
         <img class="swiper-img" :src="item.image" alt @load="imageLoad" />
       </swiper-slide>
       <!-- <swiper-slide class="swiper-img">Slide 1</swiper-slide>
@@ -17,51 +17,51 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 export default {
   components: {
     Swiper,
-    SwiperSlide,
+    SwiperSlide
   },
   props: {
     imgs: {
       type: Array,
       default() {
-        return [];
-      },
-    },
+        return []
+      }
+    }
   },
   data() {
     return {
       swiperOptions: {
         autoplay: {
           delay: 1000, //1秒切换一次
-          disableOnInteraction: false,
+          disableOnInteraction: false
           // reverseDirection: true,
         },
         loop: true,
         pagination: {
-          el: ".swiper-pagination",
-        },
+          el: '.swiper-pagination'
+        }
         // observer: true,
         // observeParents: true,
         // Some Swiper option/callback...
-      },
-    };
+      }
+    }
   },
   computed: {
     swiper() {
-      return this.$refs.mySwiper.$swiper;
-    },
+      return this.$refs.mySwiper.$swiper
+    }
   },
   created() {},
   mounted() {},
   methods: {
     imageLoad() {
-      this.$emit("swiperImageLoad");
-    },
-  },
-};
+      this.$emit('swiperImageLoad')
+    }
+  }
+}
 </script>
 
 <style scoped>

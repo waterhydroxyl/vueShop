@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './rotuer/index';
-import store from './store/index';
+import router from './rotuer/index'
+import store from './store/index'
 // import VueAwesomeSwiper from 'vue-awesome-swiper'
 import toast from './components/comm/toast'
 import VueLazyload from 'vue-lazyload'
+import Fastclick from 'fastclick'
 // import 'swiper/css/swiper.css'
-
+Fastclick.attach(document.body)
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   error: require('./assets/loading.gif'),
@@ -14,12 +15,12 @@ Vue.use(VueLazyload, {
   attempt: 1
 })
 
-
 Vue.prototype.$bus = new Vue()
 Vue.use(toast)
 
-new Vue({
+var vm = new Vue({
   router,
   store,
-  render: h => h(App),
+  render: (h) => h(App)
 }).$mount('#app')
+console.log(vm)

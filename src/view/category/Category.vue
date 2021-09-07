@@ -9,39 +9,40 @@
 </template>
 
 <script>
-import { getCategory, getSubcategory } from "api/category";
-import NavBar from "components/comm/navbar/NavBar";
-import itemList from "./childCom/itemList";
-import infoList from "./childCom/infoList";
+import { getCategory, getSubcategory } from 'api/category'
+import NavBar from 'components/comm/navbar/NavBar'
+import itemList from './childCom/itemList'
+import infoList from './childCom/infoList'
 export default {
   components: {
     NavBar,
     itemList,
-    infoList,
+    infoList
   },
   data() {
     return {
       leftNav: [],
-      goodsList: [],
-    };
+      goodsList: []
+    }
   },
   mounted() {
     /*在这里保存分类左边的信息*/
     getCategory().then((res) => {
-      this.leftNav = res.data.category.list;
+      this.leftNav = res.data.category.list
       getSubcategory(this.leftNav[0].maitKey).then((res) => {
-        this.goodsList = res.data.list;
-      });
-    });
+        this.goodsList = res.data.list
+      })
+    })
   },
   methods: {
     changeIndex(maitKey) {
+      this.goodsList = []
       getSubcategory(maitKey).then((res) => {
-        this.goodsList = res.data.list;
-      });
-    },
-  },
-};
+        this.goodsList = res.data.list
+      })
+    }
+  }
+}
 </script>
 
 <style scoped>

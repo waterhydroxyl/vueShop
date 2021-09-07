@@ -6,10 +6,9 @@
 export default {
   components: {},
   data() {
-    return {};
-  },
-};
+    return {}
+  }
+}
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

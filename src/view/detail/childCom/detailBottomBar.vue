@@ -25,10 +25,10 @@
 export default {
   methods: {
     addCart() {
-      this.$emit("addCart");
-    },
-  },
-};
+      this.$emit('addCart')
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -62,7 +62,7 @@ export default {
   width: 22px;
   height: 22px;
   margin: 6px auto 3px;
-  background: url("../../../assets/img/detail/detail_bottom.png") 0 0/100%;
+  background: url('../../../assets/img/detail/detail_bottom.png') 0 0/100%;
 }
 
 .bar-left .service {

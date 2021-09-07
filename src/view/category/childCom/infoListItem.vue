@@ -2,23 +2,23 @@
   <div class="InfoListItem">
     <div class="Item">
       <!-- <a :href="goodsInfo.link"> -->
-        <img :src="goodsInfo.image" alt />
+      <img v-lazy="goodsInfo.image" alt />
       <!-- </a> -->
     </div>
-    <div class="text">{{goodsInfo.title}}</div>
+    <div class="text">{{ goodsInfo.title }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "InfoListItem",
+  name: 'InfoListItem',
   props: {
     goodsInfo: {
       type: Object,
-      default: {},
-    },
-  },
-};
+      default: {}
+    }
+  }
+}
 </script>
 
 <style scoped>

@@ -1,21 +1,21 @@
 <template>
   <div class="item">
     <div class="listitem">
-      <div>{{message.title}}</div>
+      <div>{{ message.title }}</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Item",
+  name: 'Item',
   props: {
     message: {
       type: Object,
-      default: "",
-    },
-  },
-};
+      default: ''
+    }
+  }
+}
 </script>
 
 <style scoped>

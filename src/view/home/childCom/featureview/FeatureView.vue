@@ -1,8 +1,8 @@
 <template>
   <div>
-      <!-- <a href=""> -->
-        <img src="@/assets/img/home/recommend_bg.jpg" alt="">
-      <!-- </a> -->
+    <!-- <a href=""> -->
+    <img src="@/assets/img/home/recommend_bg.jpg" alt="" />
+    <!-- </a> -->
   </div>
 </template>
 
@@ -10,13 +10,13 @@
 export default {
   components: {},
   data() {
-    return {};
+    return {}
   }
-};
+}
 </script>
 
 <style scoped>
-img{
-    width: 100%;
+img {
+  width: 100%;
 }
 </style>

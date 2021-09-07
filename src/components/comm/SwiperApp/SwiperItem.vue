@@ -6,14 +6,14 @@
 
 <script>
 export default {
-  name: "SwiperItem",
+  name: 'SwiperItem',
   components: {},
   data() {
-    return {};
+    return {}
   },
   created() {},
-  mounted() {},
-};
+  mounted() {}
+}
 </script>
 
 <style scoped>
@@ -26,7 +26,7 @@ export default {
   width: 100%;
   z-index: 10;
 }
-.panels-item img {
+/* .panels-item img {
   width: 100%;
-}
+} */
 </style>

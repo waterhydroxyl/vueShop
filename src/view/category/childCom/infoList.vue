@@ -2,7 +2,7 @@
   <div class="info-list">
     <info-list-item
       class="info-list-item"
-      v-for="(item,index) in InfoList"
+      v-for="(item, index) in InfoList"
       :key="index"
       :goodsInfo="item"
     />
@@ -10,22 +10,22 @@
 </template>
 
 <script>
-import InfoListItem from "./infoListItem";
+import InfoListItem from './infoListItem'
 
 export default {
-  name: "InfoList",
+  name: 'InfoList',
   components: {
-    InfoListItem,
+    InfoListItem
   },
   props: {
     InfoList: {
       type: Array,
       default() {
-        return [];
-      },
-    },
-  },
-};
+        return []
+      }
+    }
+  }
+}
 </script>
 
 <style scoped>

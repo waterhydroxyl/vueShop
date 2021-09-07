@@ -1,5 +1,5 @@
 <template>
-  <div v-if="imgs.length>0">
+  <div v-if="imgs.length > 0">
     <!-- <Swiper ref="mySwiper" :options="swiperOptions">
       <swiper-slide v-for="(item,index) in imgs" :key="index">
         <img class="swiper-img" :src="item.image" alt @load="imageLoad" />
@@ -7,44 +7,54 @@
       <div class="swiper-pagination" slot="pagination"></div>
     </Swiper>-->
     <Swiper :delay="2000">
-      <swiper-item v-for="(item,index) in imgs" :key="index">
-        <img :src="item.image" alt @load="imageLoad" />
+      <swiper-item
+        v-for="(item, index) in imgs"
+        :key="index"
+        class="swiper-item"
+      >
+        <img :src="item.image" alt @load.once="imageLoad" />
       </swiper-item>
     </Swiper>
   </div>
 </template>
 
 <script>
-import { Swiper, SwiperItem } from "components/comm/SwiperApp/index";
+import { Swiper, SwiperItem } from 'components/comm/SwiperApp/index'
 export default {
   components: {
     Swiper,
-    SwiperItem,
+    SwiperItem
   },
   props: {
     imgs: {
       type: Array,
       default() {
-        return [];
-      },
-    },
+        return []
+      }
+    }
   },
   data() {
-    return {};
+    return {
+      oneImgLoaded: false
+    }
   },
   computed: {},
   created() {},
   mounted() {},
   methods: {
     imageLoad() {
-      this.$emit("swiperImageLoad");
-    },
-  },
-};
+      if (!this.oneImgLoaded) {
+        this.oneImgLoaded = !this.oneImgLoaded
+        // console.log("swiperImageLoad");
+        this.$emit('swiperImageLoad')
+      }
+    }
+  }
+}
 </script>
 
 <style scoped>
-.swiper-img {
+.swiper-item img {
   width: 100%;
 }
 </style>

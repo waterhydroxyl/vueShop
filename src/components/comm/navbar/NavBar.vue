@@ -16,21 +16,24 @@
 export default {
   components: {},
   data() {
-    return {};
-  },
-};
+    return {}
+  }
+}
 </script>
 
 <style scoped>
 .nav-bar {
-  position: fixed;
-  left: 0;
+  /* position: fixed; */
+  /* left: 0;
   right: 0;
-  top: 0;
+  top: 0; */
+  font-size: 16px;
   display: flex;
   height: 40px;
   line-height: 40px;
   text-align: center;
+  background-color: deeppink;
+  color: white;
   /* z-index: 2; */
   box-shadow: 0px 1px 1px rgba(100, 100, 100, 0.1);
 }

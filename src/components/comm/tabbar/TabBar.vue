@@ -1,11 +1,11 @@
 <template>
   <div id="tab-bar">
-      <slot></slot>
+    <slot></slot>
   </div>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style lang="less" scoped>

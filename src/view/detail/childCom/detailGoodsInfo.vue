@@ -1,9 +1,13 @@
 <template>
   <div class="detailgoodsinfo" v-if="Object.keys(detailInfo).length !== 0">
-    <div class="des">{{detailInfo.desc}}</div>
+    <div class="des">{{ detailInfo.desc }}</div>
     <div class="result">
-      <div class="key">{{detailInfo.detailImage[0].key}}~</div>
-      <div class="photolist" v-for="(item,index) in detailInfo.detailImage[0].list" :key="index">
+      <div class="key">{{ detailInfo.detailImage[0].key }}~</div>
+      <div
+        class="photolist"
+        v-for="(item, index) in detailInfo.detailImage[0].list"
+        :key="index"
+      >
         <img :src="item" alt @load="imgLoad" />
       </div>
     </div>
@@ -12,31 +16,31 @@
 
 <script>
 export default {
-  name: "DetailGoodsInfo",
+  name: 'DetailGoodsInfo',
   props: {
     detailInfo: {
-      type: Object,
-    },
+      type: Object
+    }
   },
   data() {
     return {
       counter: 0,
-      imageLength: 0,
-    };
+      imageLength: 0
+    }
   },
   methods: {
     imgLoad() {
       // if (++this.counter === this.imageLength) {
-      this.$emit("imageLoad");
+      this.$emit('imageLoad')
       // }
-    },
+    }
   },
   watch: {
     detailInfo() {
-      this.imageLength = this.detailInfo.detailImage[0].list.length;
-    },
-  },
-};
+      this.imageLength = this.detailInfo.detailImage[0].list.length
+    }
+  }
+}
 </script>
 
 <style scoped>

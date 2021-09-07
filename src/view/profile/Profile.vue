@@ -8,17 +8,17 @@
 </template>
 
 <script>
-import NavBar from "components/comm/navbar/NavBar";
-import UserInfo from "./childCom/UserInfo";
+import NavBar from 'components/comm/navbar/NavBar'
+import UserInfo from './childCom/UserInfo'
 export default {
   components: {
     NavBar,
-    UserInfo,
+    UserInfo
   },
   data() {
-    return {};
-  },
-};
+    return {}
+  }
+}
 </script>
 
 <style scoped>

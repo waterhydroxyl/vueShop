@@ -7,13 +7,13 @@
       <img :src="product.image" alt="商品图片" />
     </div>
     <div class="item-info">
-      <div class="item-title">{{product.title}}</div>
-      <div class="item-desc">商品描述: {{product.desc}}</div>
+      <div class="item-title">{{ product.title }}</div>
+      <div class="item-desc">商品描述: {{ product.desc }}</div>
       <div class="info-bottom">
-        <div class="item-price left">¥{{product.price}}</div>
+        <div class="item-price left">¥{{ product.price }}</div>
         <div class="item-count right">
           <button @click="sub" class="sub">-</button>
-          x{{product.count}}
+          x{{ product.count }}
           <button @click="add" class="add">+</button>
         </div>
       </div>
@@ -22,28 +22,28 @@
 </template>
 
 <script>
-import CheckButtom from "components/content/checkbottom/CheckButtom";
+import CheckButtom from 'components/content/checkbottom/CheckButtom'
 export default {
   props: {
     product: {
       type: Object,
       default() {
-        return {};
-      },
-    },
+        return {}
+      }
+    }
   },
   data() {
     return {
-      IsDisabled: false,
-    };
+      IsDisabled: false
+    }
   },
   components: {
-    CheckButtom,
+    CheckButtom
   },
   methods: {
     checkClick() {
-      this.product.checked = !this.product.checked;
-      this.$store.commit("changeState"); /*在这里判断全部的是不是都选中了*/
+      this.product.checked = !this.product.checked
+      this.$store.commit('changeState') /*在这里判断全部的是不是都选中了*/
     },
     sub() {
       /*这里减少那个count*/
@@ -56,14 +56,14 @@ export default {
       //   }
       // });
       // if (bool == false) {
-        this.$store.commit("Sub", this.product);
+      this.$store.commit('Sub', this.product)
       // }
     },
     add() {
-      this.$store.commit("Add", this.product);
-    },
-  },
-};
+      this.$store.commit('Add', this.product)
+    }
+  }
+}
 </script>
 
 <style scoped>
